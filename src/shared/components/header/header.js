@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { Navbar, NavbarBrand } from "reactstrap";
 
 class Header extends React.Component {
   render() {
@@ -7,12 +7,6 @@ class Header extends React.Component {
       <div>
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">Airbnb</NavbarBrand>
-
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink>GitHub</NavLink>
-            </NavItem>
-          </Nav>
         </Navbar>
       </div>
     );

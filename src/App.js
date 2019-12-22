@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Header from "./shared/components/header/header";
 import axios from "axios";
-import Flat from "./shared/components/flat/flat";
-import Search from "./shared/components/search/search";
+import Flat from "./components/flat/flat";
+import Search from "./components/search/search";
 import Map from "./components/map/map";
 import { Row, Col } from "reactstrap";
 import { Badge } from "reactstrap";
+import Footer from './shared/components/footer/footer';
 
 const Marker = ({ text }) => (
   <h6>
@@ -51,33 +52,25 @@ export class App extends Component {
           <Row>
             <Col>
               {flats && (<Row>
-                {flats.map((flat, i) => {
-                  return (
-                    <Col md="6" className="my-3" key={i}>
-                      <Flat flat={flat} onClick={() => this.findFlat(flat)} />
-                    </Col>
-                  );
-                })}
+                {flats.map((flat, i) => (
+                  <Col md="6" className="my-3" key={i}>
+                    <Flat flat={flat} onClick={() => this.findFlat(flat)} />
+                  </Col>
+                ))}
               </Row>)}
             </Col>
             <Col>
               {flats && (
                 <Map zoom={zoom} center={center}>
-                  {flats.map((flat, i) => {
-                    return (
-                      <Marker
-                        key={i}
-                        lat={flat.lat}
-                        lng={flat.lng}
-                        text={"£" + flat.price}
-                      />
-                    );
-                  })}
+                  {flats.map((flat, i) => (
+                    <Marker key={i} lat={flat.lat} lng={flat.lng} text={"£" + flat.price} />
+                  ))}
                 </Map>
               )}
             </Col>
           </Row>
         </div>
+        <Footer />
       </>
     );
   }

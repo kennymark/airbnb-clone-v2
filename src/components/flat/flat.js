@@ -19,6 +19,7 @@ export class Flat extends Component {
           width="100%"
           src={this.props.flat.imageUrl}
           alt="Card image cap"
+
         />
         <CardBody>
           <CardText>
